@@ -8,9 +8,11 @@ module Neuron
 
     def on_activity
       require "naive_bayes"
+      require "decisiontree"
       
       finput = File.read("_ainput/finput.txt").strip.to_i
       dinput = File.read("_ainput/dinput.txt").strip.to_i
+      #ainput = File.read("_ainput/decision/input.txt").strip.to_i
     
       # Make sure that story elements are kept on seperate lines.
       character_fate = File.readlines("_narratives/outcomes/character_fates.txt")
@@ -56,6 +58,11 @@ module Neuron
 
         row = row + 1
       end
+
+      # Reset row
+      #row = 0
+
+      ## Decision tree here
     end
 
     def off_activity

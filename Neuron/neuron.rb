@@ -7,6 +7,8 @@ module Neuron
     end
 
     def on_activity
+      require "naive_bayes"
+      
       finput = File.read("_ainput/finput.txt").strip.to_i
       dinput = File.read("_ainput/dinput.txt").strip.to_i
     
@@ -24,10 +26,6 @@ module Neuron
 
         f.puts "#{segment_1} #{segment_2}"
       }
-    end
-
-    def off_activity
-      require "naive_bayes"
 
       outcome = NaiveBayes.new(:worst, :neutral, :best)
 
@@ -58,6 +56,10 @@ module Neuron
 
         row = row + 1
       end
+    end
+
+    def off_activity
+      puts "Goodnight!"
     end
 
     def transition

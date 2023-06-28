@@ -1,5 +1,5 @@
 # NeuronSM
-An example of a neuron state machine.
+An example of a neuron state machine. Now you can reason with neurons, that each act like its own database.
 
 ## Implementation
 ~~~ruby

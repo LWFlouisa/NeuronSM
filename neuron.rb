@@ -6,6 +6,9 @@ class Neuron
   end
 
   def on_activity
+    finput = File.read("_ainput/finput.txt").strip.to_i
+    dinput = File.read("_ainput/dinput.txt").strip.to_i
+    
     # Make sure that story elements are kept on seperate lines.
     character_fate = File.readlines("_narratives/outcomes/character_fates.txt")
     dating_outcome = File.readlines("_narratives/outcomes/dating_outcomes.txt")
@@ -15,8 +18,8 @@ class Neuron
 
     # Imagined a compromise path that is neither ideal or tragic.
     open("_imaginedpath/outcomes/nuetral_outcome.txt", "a") { |f|
-      segment_1 = character_fate[1].strip
-      segment_2 = dating_outcome[0].strip
+      segment_1 = character_fate[finput].strip
+      segment_2 = dating_outcome[dinput].strip
 
       f.puts "#{segment_1} #{segment_2}"
     }
